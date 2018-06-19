@@ -289,7 +289,7 @@ class auth_plugin_authshibboleth extends DokuWiki_Auth_Plugin
      * {@inheritdoc}
      * @see DokuWiki_Auth_Plugin::trustExternal()
      */
-    public function trustExternal()
+    public function trustExternal($user, $pass, $sticky = false)
     {
         $this->debug('Checking for DokuWiki session...');
         if ($this->getConf(self::CONF_USE_DOKUWIKI_SESSION) && ($userInfo = $this->loadUserInfoFromSession()) !== null) {
