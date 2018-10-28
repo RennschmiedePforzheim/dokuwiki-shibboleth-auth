@@ -103,7 +103,8 @@ $conf['plugin']['authshibboleth'] = array(
                 'source_attribute' => 'entitlement',
                 'map' => array(
                     'entitlement1' => 'group1',
-                    'entitlement2' => 'group2'
+                    'entitlement2' => 'group2',
+                    'entitlement3' => ['group3', 'group4']
                 ),
                 'prefix' => 'ent:'
             )

@@ -649,7 +649,15 @@ class auth_plugin_authshibboleth extends DokuWiki_Auth_Plugin
                 $group = $sourceOptions['prefix'] . $group;
             }
             
-            $groups[] = $group;
+            // Allow arrays in mapping
+            if (is_array($group)) {
+                foreach ($group as $value) {
+                    $groups[] = $value;
+                }
+            }
+            else {
+                $groups[] = $group;
+            }
         }
         
         return $groups;
