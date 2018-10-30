@@ -644,19 +644,23 @@ class auth_plugin_authshibboleth extends DokuWiki_Auth_Plugin
                     $group = $map[$group];
                 }
             }
-            
-            if (isset($sourceOptions['prefix'])) {
-                $group = $sourceOptions['prefix'] . $group;
-            }
-            
+                        
             // Allow arrays in mapping
             if (is_array($group)) {
                 foreach ($group as $value) {
+                if (isset($sourceOptions['prefix'])) {
+                   $groups[] = $sourceOptions['prefix'] . $value;
+                } else {
                     $groups[] = $value;
+                }
                 }
             }
             else {
-                $groups[] = $group;
+                if (isset($sourceOptions['prefix'])) {
+                   $groups[] = $sourceOptions['prefix'] . $group;
+                } else {
+                    $groups[] = $group;
+                }
             }
         }
         
