@@ -68,8 +68,12 @@ $conf['plugin']['authshibboleth'] = array(
      *       - "path" (required) - the full path to the group file
      *  
      *  Common options:
-     *    - "map" (optional) - map values to custom group names
      *    - "prefix" (optional) - add a prefix for each group name from that source, applies after mapping
+     *    - "map" (optional) - map values to custom group names
+     *    - "map_regex" (optional) - checks for a match in the shibboleth source value and assigns groups
+     *      Both mapping options share the same syntax, where the key of the array is the name of the shibboleth
+     *      attribute (or a regex command to match that value), and the value the new DokuWiki group or an array 
+     *      of DokuWiki groups
      *
      * 
      */
@@ -105,6 +109,22 @@ $conf['plugin']['authshibboleth'] = array(
                     'entitlement1' => 'group1',
                     'entitlement2' => 'group2',
                     'entitlement3' => ['group3', 'group4']
+                ),
+                'prefix' => 'ent:'
+            )
+        ),
+        */
+
+        /*
+         * The groups are taken from the mail attribute and the values are mapped to group names if the domain matches.
+         */
+        /*
+        'mail' => array(
+            'type' => 'environment',
+            'options' => array(
+                'source_attribute' => 'mail',
+                'map_regex' => array(
+                    '/.+@mail\.com/' => 'group_mail',
                 ),
                 'prefix' => 'ent:'
             )

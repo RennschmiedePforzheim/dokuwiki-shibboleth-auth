@@ -1,8 +1,9 @@
 # DokuWiki Shibboleth Authentication Plugin
 
-* Homepage: [DokuWiki Shibboleth Authentication Plugin](https://github.com/ivan-novakov/dokuwiki-shibboleth-auth)
+* Based on: [DokuWiki Shibboleth Authentication Plugin](https://github.com/ivan-novakov/dokuwiki-shibboleth-auth) by [Ivan Novakov](http://novakov.cz/)
+* Forked from [Jan Oppolzer](https://github.com/JanOppolzer/dokuwiki-shibboleth-auth)
 * License: [BSD 3 Clause](http://debug.cz/license/bsd-3-clause)
-* Author: [Ivan Novakov](http://novakov.cz/)
+* Tested with Version `2018-04-22a "Greebo"` of Dokuwiki
 
 ## Introduction
 
@@ -36,7 +37,7 @@ You need Shibboleth SP 2.x installed and running. In Apache you have to configur
 
 ## Plugin installation and configuration
 
-Clone the [repository](https://github.com/ivan-novakov/dokuwiki-shibboleth-auth) anywhere on your system. Copy the `plugin/authshibboleth` directory to `DOKUWIKI_HOME/lib/plugins`. 
+Clone the [repository](https://github.com/RennschmiedePforzheim/dokuwiki-shibboleth-auth) anywhere on your system. Copy the `plugin/authshibboleth` directory to `DOKUWIKI_HOME/lib/plugins`. 
 
 In `DOKUWIKI_HOME/conf/local.conf` set the `authtype` directive:
 
