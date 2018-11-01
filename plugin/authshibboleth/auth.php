@@ -638,30 +638,41 @@ class auth_plugin_authshibboleth extends DokuWiki_Auth_Plugin
          * Groups "post-processing"
          */
         foreach ($sourceGroups as $group) {
+
+            // Group mapping
             if (isset($sourceOptions['map'])) {
                 $map = $sourceOptions['map'];
                 if (isset($map[$group])) {
                     $group = $map[$group];
                 }
             }
+
+            // Regex group mapping
+            if (isset($sourceOptions['map_regex'])) {
+                $map_regex = $sourceOptions['map_regex'];
+                foreach ($map_regex as $key => $value) {
+                    if (preg_match($key, $group) == 1) {
+                        $group = $map_regex[$key];
+                    }
+                }
+            }
                         
             // Allow arrays in mapping
             if (is_array($group)) {
                 foreach ($group as $value) {
-                if (isset($sourceOptions['prefix'])) {
-                   $groups[] = $sourceOptions['prefix'] . $value;
-                } else {
                     $groups[] = $value;
                 }
+            } else {
+                $groups[] = $group;
+            }
+
+            // Add prefixes
+            if (isset($sourceOptions['prefix'])) {
+                foreach ($groups as $key => $value) {
+                    $groups[$key] = $sourceOptions['prefix'] . $value;
                 }
             }
-            else {
-                if (isset($sourceOptions['prefix'])) {
-                   $groups[] = $sourceOptions['prefix'] . $group;
-                } else {
-                    $groups[] = $group;
-                }
-            }
+
         }
         
         return $groups;
