@@ -1,7 +1,7 @@
 base authshibboleth
-author Rennschmiede Pforzheim
+author Christian Hauff, Nils Siegle
 email info@rennschmiede-pforzheim.de
-date 2018-11-01
+date 2018-11-03
 name Shibboleth Authentication Plugin
-desc Provides external authentication and authorization via a Shibboleth Service Provider instance
+desc Provides external authentication and authorization via a Shibboleth Service Provider instance. Based on the Plugin by Ivan Novakov.
 url https://github.com/RennschmiedePforzheim/dokuwiki-shibboleth-auth
